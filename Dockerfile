@@ -9,7 +9,7 @@ RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 COPY redlock-db.sql /docker-entrypoint-initdb.d/redlock-db.sql
 
 # Copy file index.php ke dalam image
-COPY . /var/www/html/
+COPY index.php /var/www/html/
 
 # Grant permission kepemilikan 'u' dan 'g' pada direktori /var/www/html
 # Dan menghilangkan permission ‘w’ and ‘x’ untuk others
