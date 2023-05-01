@@ -1,18 +1,10 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                script {
-                    docker.build("redlock-web-2.0:${env.BUILD_NUMBER}", ".")
-                }
-            }
-        }
-        stage('Run') {
-            steps {
-                script {
-                    docker.run("redlock-web-2.0:${env.BUILD_NUMBER}", ports: '8080:8080')
-                }
+                sh 'docker build -t redlock-web-2.0 .'
             }
         }
     }
