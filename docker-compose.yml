@@ -1,4 +1,4 @@
-# 2502001164 - Marcelius Surya Wijaya
+# 2502001164 - Marcelius Surya Wijaya 
 version: "3.8"
 
 services:
@@ -30,7 +30,6 @@ services:
         # Memetakan volume dari host ke dalam container
         volumes:
             - ./index.php:/var/www/html/index.php
-            - ./count_user.php:/var/www/html/count_user.php
         # Menetapkan port pada host dan container yang akan digunakan
         ports:
             - "7077:80"
