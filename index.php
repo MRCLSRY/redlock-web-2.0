@@ -31,5 +31,8 @@ if (mysqli_num_rows($result) > 0) {
 	
 	// Menampilkan footer tabel
 	echo "</table>";
+	
+	// Menambahkan tombol untuk membuka file count_user.php
+	echo "<br><a href='count_user.php'>Count User</a>";
 }
 ?>
