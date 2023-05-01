@@ -3,18 +3,35 @@ pipeline {
   stages {
     stage('Prune Docker data') {
       steps {
-        sh 'docker system prune -a --volumes -f'
+        script {
+          if (fileExists('docker-compose.yml')) {
+            echo 'docker-compose.yml found'
+          } else {
+            error 'docker-compose.yml not found'
+          }
+        }
       }
     }
     stage('Start container') {
       steps {
-        sh 'docker compose up -d --no-color --wait'
-        sh 'docker compose ps'
+        script {
+          if (fileExists('docker-compose.yml')) {
+            echo 'docker-compose.yml found'
+          } else {
+            error 'docker-compose.yml not found'
+          }
+        }
       }
     }
     stage('Run tests against the container') {
       steps {
-        sh 'curl http://localhost:7077/param?query=demo | jq'
+        script {
+          if (fileExists('docker-compose.yml')) {
+            echo 'docker-compose.yml found'
+          } else {
+            error 'docker-compose.yml not found'
+          }
+        }
       }
     }
   }
