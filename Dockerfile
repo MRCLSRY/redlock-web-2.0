@@ -2,6 +2,12 @@
 # Base image menggunakan PHP 8.1.x dan Apache Web Server
 FROM php:8.1-apache
 
+# Copy sertifikat SSL ke dalam image Docker
+COPY ca.crt /usr/local/share/ca-certificates/
+
+# Install sertifikat SSL
+RUN update-ca-certificates
+
 # Install mysqli extension
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
